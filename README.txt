@@ -33,9 +33,9 @@ HOW TO RUN WEBSITE:
 Troubleshooting:
 If the above does not work, you will need to change the python path to match where you installed pyton on your own device.
 
-1. Find the path where your python.exe is installed in your own system
+1. Find the path where your python.exe is installed in your own system 
 2. Copy that path
-3. Go into community-main/virt/ and open pyvenv.cfg in any editor and past the path from step 1 into the file and save
+3. Go into community-main/virt/ and open pyvenv.cfg in any editor and paste the path from step 1 into the file and save
 
 
 What we have available on the website:
