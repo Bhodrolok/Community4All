@@ -21,7 +21,7 @@ def login_user(request):
 
 		else:
 			# Return an 'invalid login' error message.
-			messages.success(request, ("There was an error logging in, try again!"))
+			messages.success(request, ("Error logging in"))
 			return redirect('login')
 
 	else:
@@ -30,7 +30,7 @@ def login_user(request):
 
 def logout_user(request):
 	logout(request)
-	messages.success(request, ("You were logged out successfully!"))
+	messages.success(request, ("Logged out."))
 	return redirect('home')
 
 
@@ -40,7 +40,8 @@ def register_user(request):
 
 		if form.is_valid():
 			# Save this in the Service/User Table
-			u = User(first_name = form.cleaned_data['first_name'],
+			u = User(
+				first_name = form.cleaned_data['first_name'],
 				last_name = form.cleaned_data['last_name'],
 				email = form.cleaned_data['email'],
 				address = form.cleaned_data['address'],
@@ -54,7 +55,7 @@ def register_user(request):
 			user = authenticate(username=username, password=password)
 			login(request, user)
 
-			messages.success(request, ("Registration successful!"))
+			messages.success(request, ("Registration complete."))
 			return redirect('home')
 
 	else:
