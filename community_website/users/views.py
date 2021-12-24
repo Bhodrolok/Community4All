@@ -8,22 +8,22 @@ from services.models import User
 # Create your views here.
 
 def login_user(request):
-
+	## view for rendering login page
 	if request.method == "POST":
+		# get the post parameters
 		username = request.POST['username']
 		password = request.POST['password']
-	
 		user = authenticate(request, username=username, password=password)
-
+		
+		# Check for valid login
 		if user is not None:
 			login(request, user)
+			messages.success(request, ": Logged in successfully.")
 			return redirect('home')
-
 		else:
 			# Return an 'invalid login' error message.
-			messages.success(request, ("Error logging in"))
+			messages.success(request, ("Credentials not found in database. Try again."))
 			return redirect('login')
-
 	else:
 		return render(request, 'authenticate/login.html', {})
 
@@ -37,7 +37,6 @@ def logout_user(request):
 def register_user(request):
 	if request.method == "POST":
 		form = RegisterUserForm(request.POST)
-
 		if form.is_valid():
 			# Save this in the Service/User Table
 			u = User(
@@ -55,9 +54,8 @@ def register_user(request):
 			user = authenticate(username=username, password=password)
 			login(request, user)
 
-			messages.success(request, ("Registration complete."))
+			messages.success(request, ("Account creation successfull."))
 			return redirect('home')
-
 	else:
 		form = RegisterUserForm()
 
