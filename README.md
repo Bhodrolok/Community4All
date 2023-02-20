@@ -53,6 +53,6 @@ If the above installation process does not work, you will need to change the pyt
 
 # Authors
 
-[**Ranadip Chatterjee**](https://github.com/oBhodrolok)
+[**Ranadip Chatterjee**](https://github.com/Bhodrolok)
 
 [**Dora Tan**](https://github.com/DoughraT)
